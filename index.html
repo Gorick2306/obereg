@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧОО «ОБЕРЕГ» — Главная</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f5f7;
+            color: #1a1a1a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; color: #132238; }
+        nav a { text-decoration: none; color: #555; margin-left: 25px; font-size: 15px; }
+        nav a.active { color: #f59e0b; font-weight: bold; }
+        .hero {
+            background-color: #132238;
+            color: #ffffff;
+            padding: 90px 10%;
+            text-align: center;
+        }
+        .hero h1 { font-size: 40px; margin-bottom: 15px; line-height: 1.2; }
+        .hero p { font-size: 16px; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px auto; }
+        .btn {
+            background-color: #f59e0b;
+            color: #132238;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        .services {
+            padding: 60px 10%;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex: 1;
+        }
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            border-top: 4px solid #f59e0b;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .card h3 { margin-top: 0; color: #132238; }
+        .card p { color: #64748b; font-size: 14px; }
+        footer {
+            background-color: #132238;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 13px;
+            margin-top: auto;
+        }
+
+        /* Настройки для смартфонов */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 5%; gap: 12px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { margin-left: 0; font-size: 14px; }
+            .hero { padding: 50px 5%; }
+            .hero h1 { font-size: 26px; }
+            .hero p { font-size: 15px; }
+            .services { flex-direction: column; padding: 30px 5%; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ЧОО «ОБЕРЕГ»</div>
+        <nav>
+            <a href="index.html" class="active">Главная</a>
+            <a href="about.html">О компании</a>
+            <a href="services.html">Услуги охраны</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Надёжная защита вашего бизнеса и имущества</h1>
+        <p>Лицензированная частная охранная организация. Круглосуточное реагирование, физическая охрана объектов и современные системы безопасности.</p>
+        <a href="contacts.html" class="btn">Заказать расчёт охраны</a>
+    </section>
+
+    <section class="services">
+        <div class="card">
+            <img src="guard.jpg" alt="Физическая охрана">
+            <h3>Физическая охрана</h3>
+            <p>Квалифицированные сотрудники 4–6 разряда для защиты офисов, складов, заводов и жилых комплексов.</p>
+        </div>
+<div class="card">
+            <img src="camera.jpg" alt="Пультовая охрана">
+            <h3>Пультовая охрана</h3>
+            <p>Мгновенный выезд группы быстрого реагирования (ГБР) в течение 5–7 минут после сработки сигнализации.</p>
+        </div>
+        <div class="card">
+            <img src="cargo.jpg" alt="Сопровождение грузов">
+            <h3>Сопровождение грузов</h3>
+            <p>Вооружённая охрана ценных грузов и материальных средств при перевозках по всей России.</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 ЧОО «ОБЕРЕГ». Лицензия Росгвардии. Все права защищены.
+    </footer>
+</body>
+</html>

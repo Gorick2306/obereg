@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧОО «ОБЕРЕГ» — О компании</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f5f7;
+            color: #1a1a1a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; color: #132238; }
+        nav a { text-decoration: none; color: #555; margin-left: 25px; font-size: 15px; }
+        nav a.active { color: #f59e0b; font-weight: bold; }
+        .content { padding: 60px 10%; max-width: 1100px; margin: 0 auto; width: 100%; flex: 1; }
+        h1 { color: #132238; font-size: 32px; margin-bottom: 20px; }
+        .text-block {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        .stats { display: flex; gap: 25px; }
+        .stat-box {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid #f59e0b;
+        }
+        .stat-num { font-size: 36px; font-weight: bold; color: #132238; margin-bottom: 5px; }
+        .stat-text { color: #64748b; font-size: 14px; }
+        footer {
+            background-color: #132238;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 13px;
+            margin-top: auto;
+        }
+
+        /* Настройки для смартфонов */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 5%; gap: 12px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { margin-left: 0; font-size: 14px; }
+            .content { padding: 30px 5%; }
+            h1 { font-size: 26px; }
+            .text-block { padding: 20px; }
+            .stats { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ЧОО «ОБЕРЕГ»</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html" class="active">О компании</a>
+            <a href="services.html">Услуги охраны</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>О нашей организации</h1>
+        <div class="text-block">
+            <p>Частная охранная организация «ОБЕРЕГ» работает на рынке комплексной безопасности более 12 лет. В нашем штате состоят бывшие сотрудники силовых ведомств, прошедшие строгий отбор и регулярную огневую и тактическую подготовку.</p>
+            <p>Мы несём полную материальную ответственность по договору и гарантируем строгую конфиденциальность для каждого клиента.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-num">12+</div>
+                <div class="stat-text">лет успешной работы</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">150+</div>
+                <div class="stat-text">объектов под защитой</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">5 мин</div>
+                <div class="stat-text">среднее время прибытия ГБР</div>
+            </div>
+        </div>
+    </div>
+<footer>
+        © 2026 ЧОО «ОБЕРЕГ». Лицензия Росгвардии. Все права защищены.
+    </footer>
+</body>
+</html>
+
