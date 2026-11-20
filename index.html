@@ -3,129 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЧОО «ОБЕРЕГ» — Главная</title>
+    <title>ЧОО «ОБЕРЕГ» — Частная охранная организация</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f5f7;
-            color: #1a1a1a;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #ffffff;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; color: #132238; }
-        nav a { text-decoration: none; color: #555; margin-left: 25px; font-size: 15px; }
-        nav a.active { color: #f59e0b; font-weight: bold; }
-        .hero {
-            background-color: #132238;
-            color: #ffffff;
-            padding: 90px 10%;
-            text-align: center;
-        }
-        .hero h1 { font-size: 40px; margin-bottom: 15px; line-height: 1.2; }
-        .hero p { font-size: 16px; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px auto; }
-        .btn {
-            background-color: #f59e0b;
-            color: #132238;
-            padding: 14px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-            display: inline-block;
-        }
-        .services {
-            padding: 60px 10%;
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex: 1;
-        }
-        .card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            border-top: 4px solid #f59e0b;
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
-        .card h3 { margin-top: 0; color: #132238; }
-        .card p { color: #64748b; font-size: 14px; }
-        footer {
-            background-color: #132238;
-            color: #94a3b8;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 13px;
-            margin-top: auto;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0b1120; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; text-decoration: none; }
+        .logo span { color: #d97706; }
+        nav a { text-decoration: none; color: #cbd5e1; margin: 0 15px; font-size: 15px; font-weight: 600; transition: 0.2s; }
+        nav a:hover, nav a.active { color: #d97706; }
+        .header-tel { text-decoration: none; color: #ffffff; background-color: #d97706; padding: 9px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .header-tel:hover { background-color: #b45309; }
 
-        /* Настройки для смартфонов */
-        @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px 5%; gap: 12px; }
-            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-            nav a { margin-left: 0; font-size: 14px; }
-            .hero { padding: 50px 5%; }
-            .hero h1 { font-size: 26px; }
-            .hero p { font-size: 15px; }
-            .services { flex-direction: column; padding: 30px 5%; gap: 20px; }
+        /* Оригинальный первый экран с фоном бизнес-центра и левым выравниванием */
+        .hero-arch {
+            background: linear-gradient(90deg, #0b1120 0%, rgba(11, 17, 32, 0.92) 45%, rgba(11, 17, 32, 0.22) 100%), url('office-building.jpg') center/cover no-repeat;
+            min-height: 76vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 80px 8%;
+            border-bottom: 2px solid #d97706;
+        }
+        .hero-left {
+            max-width: 600px;
+            border-left: 4px solid #d97706;
+            padding-left: 28px;
+        }
+        .badge { display: inline-block; color: #fbbf24; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
+        .hero-left h1 { font-size: 44px; line-height: 1.15; margin: 0 0 20px 0; }
+        .hero-left p { color: #cbd5e1; font-size: 17px; margin: 0 0 32px 0; }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-gold { background-color: #d97706; color: #ffffff; border: none; padding: 14px 30px; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.2s; }
+        .btn-gold:hover { background-color: #b45309; }
+        .btn-dark { background-color: rgba(15, 23, 42, 0.75); color: #ffffff; border: 1px solid #64748b; padding: 14px 26px; border-radius: 6px; font-size: 15px; font-weight: 600; text-decoration: none; transition: 0.2s; }
+        .btn-dark:hover { border-color: #d97706; color: #fbbf24; }
+
+        /* Плавающая карточка дежурной части справа поверх здания */
+        .dispatch-card {
+            background-color: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid #334155;
+            border-top: 3px solid #d97706;
+            padding: 26px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .live-row { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; color: #4ade80; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+        .live-dot { width: 8px; height: 8px; background-color: #4ade80; border-radius: 50%; }
+        .dispatch-item { border-bottom: 1px solid #1e293b; padding: 10px 0; }
+        .dispatch-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .dispatch-item span { display: block; font-size: 12px; color: #94a3b8; }
+        .dispatch-item strong { font-size: 18px; color: #ffffff; }
+
+        /* Цифры и услуги */
+.stats { background-color: #0b1120; padding: 45px 8%; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; border-bottom: 1px solid #1e293b; }
+        .stat-box { flex: 1; min-width: 200px; text-align: center; }
+        .stat-num { font-size: 36px; font-weight: 900; color: #d97706; line-height: 1.1; margin-bottom: 6px; }
+        .stat-desc { color: #94a3b8; font-size: 14px; }
+        .section { padding: 75px 8%; max-width: 1280px; margin: 0 auto; width: 100%; }
+        .sec-title { font-size: 32px; margin: 0 0 10px 0; text-align: center; }
+        .sec-sub { color: #94a3b8; text-align: center; margin: 0 auto 45px auto; max-width: 600px; }
+        .grid-3 { display: flex; flex-wrap: wrap; gap: 25px; }
+        .card { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; overflow: hidden; flex: 1 1 calc(33.333% - 20px); min-width: 280px; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .card-body h3 { margin: 0 0 10px 0; font-size: 20px; }
+        .card-body p { color: #94a3b8; font-size: 14px; margin: 0 0 20px 0; flex: 1; }
+        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+
+        /* Модальное окно заявки */
+        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
+        .modal-box { background-color: #1e293b; border: 2px solid #d97706; border-radius: 12px; padding: 35px; max-width: 450px; width: 100%; position: relative; }
+        .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #94a3b8; font-size: 28px; cursor: pointer; }
+        .modal-box h3 { margin: 0 0 8px 0; font-size: 24px; }
+        .modal-box p { margin: 0 0 20px 0; color: #94a3b8; font-size: 14px; }
+        .m-input { width: 100%; padding: 13px 15px; margin-bottom: 14px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
+        .m-input:focus { border-color: #d97706; }
+        .m-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 700; }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; gap: 12px; padding: 15px 5%; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            nav a { margin: 0; font-size: 14px; }
+            .hero-arch { flex-direction: column; align-items: flex-start; background: linear-gradient(180deg, rgba(11, 17, 32, 0.85) 0%, rgba(11, 17, 32, 0.72) 100%), url('office-building.jpg') center/cover no-repeat; padding: 55px 5%; }
+            .hero-left { padding-left: 18px; }
+            .hero-left h1 { font-size: 28px; }
+            .dispatch-card { width: 100%; }
+            .card { flex: 1 1 100%; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">ЧОО «ОБЕРЕГ»</div>
+        <a href="index.html" class="logo">ЧОО <span>«ОБЕРЕГ»</span></a>
         <nav>
             <a href="index.html" class="active">Главная</a>
-            <a href="about.html">О компании</a>
-            <a href="services.html">Услуги охраны</a>
+            <a href="services.html">Услуги</a>
+            <a href="prices.html">Тарифы</a>
             <a href="contacts.html">Контакты</a>
         </nav>
+        <a href="tel:+78005553535" class="header-tel">8 (800) 555-35-35</a>
     </header>
 
-    <section class="hero">
-        <h1>Надёжная защита вашего бизнеса и имущества</h1>
-        <p>Лицензированная частная охранная организация. Круглосуточное реагирование, физическая охрана объектов и современные системы безопасности.</p>
-        <a href="contacts.html" class="btn">Заказать расчёт охраны</a>
+    <section class="hero-arch">
+        <div class="hero-left">
+            <div class="badge">Лицензия Росгвардии • С 2012 года</div>
+            <h1>Комплексная охрана бизнес-центров, объектов и грузов</h1>
+            <p>Физические посты, пультовое реагирование за 5 минут и монтаж систем контроля доступа с полной материальной ответственностью.</p>
+            <div class="hero-btns">
+                <button class="btn-gold" onclick="openGuardModal('Расчёт стоимости охраны объекта')">Рассчитать стоимость</button>
+                <a href="services.html" class="btn-dark">Каталог услуг</a>
+            </div>
+        </div>
+
+        <div class="dispatch-card">
+            <div class="live-row"><span class="live-dot"></span> Мониторинг 24/7 активен</div>
+            <div class="dispatch-item">
+                <span>Время прибытия ГБР</span>
+                <strong>от 4 до 6 минут</strong>
+            </div>
+            <div class="dispatch-item">
+                <span>Экипажей на дежурстве</span>
+                <strong>18 групп в городе</strong>
+            </div>
+            <div class="dispatch-item">
+                <span>Бесплатный выезд инженера</span>
+                <strong>В день обращения</strong>
+            </div>
+        </div>
     </section>
 
-    <section class="services">
-        <div class="card">
-            <img src="guard.jpg" alt="Физическая охрана">
-            <h3>Физическая охрана</h3>
-            <p>Квалифицированные сотрудники 4–6 разряда для защиты офисов, складов, заводов и жилых комплексов.</p>
+    <section class="stats">
+        <div class="stat-box">
+            <div class="stat-num">5 мин</div>
+            <div class="stat-desc">среднее время прибытия группы быстрого реагирования</div>
         </div>
-<div class="card">
-            <img src="camera.jpg" alt="Пультовая охрана">
-            <h3>Пультовая охрана</h3>
-            <p>Мгновенный выезд группы быстрого реагирования (ГБР) в течение 5–7 минут после сработки сигнализации.</p>
+        <div class="stat-box">
+            <div class="stat-num">340+</div>
+            <div class="stat-desc">офисов, складов и магазинов под нашей защитой</div>
         </div>
-        <div class="card">
-            <img src="cargo.jpg" alt="Сопровождение грузов">
-            <h3>Сопровождение грузов</h3>
-            <p>Вооружённая охрана ценных грузов и материальных средств при перевозках по всей России.</p>
+        <div class="stat-box">
+            <div class="stat-num">14 лет</div>
+            <div class="stat-desc">безупречной работы и лицензированных сотрудников</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-desc">материальная ответственность по договору</div>
+        </div>
+    </section>
+<section class="section">
+        <h2 class="sec-title">Основные направления защиты</h2>
+        <p class="sec-sub">Подбираем оптимальный формат безопасности под бюджет и специфику вашего предприятия.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <img src="office-guard.jpg" alt="Физическая охрана">
+                <div class="card-body">
+                    <h3>Физическая охрана объектов</h3>
+                    <p>Лицензированные посты охраны для бизнес-центров, складов, строительных площадок и торговых комплексов.</p>
+                    <a href="services.html" class="btn-gold" style="text-align:center; padding:10px;">Подробнее об услуге</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="alarm.jpg" alt="Пультовая охрана">
+                <div class="card-body">
+                    <h3>Пультовая охрана и ГБР</h3>
+                    <p>Круглосуточный мониторинг тревожной кнопки и охранно-пожарной сигнализации с выездом вооружённого экипажа.</p>
+                    <a href="services.html" class="btn-gold" style="text-align:center; padding:10px;">Подробнее об услуге</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="escort.jpg" alt="Сопровождение грузов">
+                <div class="card-body">
+                    <h3>Сопровождение грузов и VIP</h3>
+                    <p>Вооружённое сопровождение ценных грузов по России и личная охрана руководителей на мероприятиях.</p>
+                    <a href="services.html" class="btn-gold" style="text-align:center; padding:10px;">Подробнее об услуге</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        © 2026 ЧОО «ОБЕРЕГ». Лицензия Росгвардии. Все права защищены.
+        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. Все права защищены.
     </footer>
+
+    <!-- Модальное окно расчёта -->
+    <div class="modal-bg" id="guardModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeGuardModal()">×</button>
+            <h3>Расчёт стоимости охраны</h3>
+            <p>Оставьте контакты — начальник охраны подготовит смету и выедет на бесплатный осмотр объекта.</p>
+            <form onsubmit="submitGuardForm(event)">
+                <input type="text" class="m-input" id="guardSubject" required>
+                <input type="text" class="m-input" placeholder="Ваше имя или организация" required>
+                <input type="tel" class="m-input" placeholder="Телефон (+7 ...)" required>
+                <select class="m-input">
+                    <option value="Офис / Бизнес-центр">Объект: Офис / Бизнес-центр</option>
+                    <option value="Магазин / Кафе">Объект: Магазин / Ресторан</option>
+                    <option value="Склад / Производство">Объект: Склад / Производство</option>
+                    <option value="Коттедж / Квартира">Объект: Частный дом / Квартира</option>
+                </select>
+                <button type="submit" class="btn-gold" style="width: 100%;">Получить расчёт</button>
+            </form>
+            <div class="m-success" id="guardSuccess">✓ Заявка принята! Дежурный специалист свяжется с вами в течение 10 минут.</div>
+        </div>
+    </div>
+
+    <script>
+        function openGuardModal(text) {
+            document.getElementById('guardModal').style.display = 'flex';
+            if (text) document.getElementById('guardSubject').value = text;
+            document.getElementById('guardSuccess').style.display = 'none';
+        }
+        function closeGuardModal() {
+            document.getElementById('guardModal').style.display = 'none';
+        }
+        function submitGuardForm(e) {
+            e.preventDefault();
+            document.getElementById('guardSuccess').style.display = 'block';
+            setTimeout(() => { closeGuardModal(); }, 2500);
+        }
+    </script>
+
 </body>
 </html>
+
+
+

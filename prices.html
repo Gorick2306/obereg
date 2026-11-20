@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы — ЧОО «ОБЕРЕГ»</title>
+    <style>
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0b1120; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; text-decoration: none; }
+        .logo span { color: #d97706; }
+        nav a { text-decoration: none; color: #cbd5e1; margin: 0 15px; font-size: 15px; font-weight: 600; transition: 0.2s; }
+        nav a:hover, nav a.active { color: #d97706; }
+        .header-tel { text-decoration: none; color: #ffffff; background-color: #d97706; padding: 9px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .header-tel:hover { background-color: #b45309; }
+
+        /* Шапка страницы с фоном бизнес-центра */
+        .page-banner {
+            background: linear-gradient(90deg, #0b1120 0%, rgba(11, 17, 32, 0.9) 55%, rgba(11, 17, 32, 0.45) 100%), url('office-building.jpg') center/cover no-repeat;
+            padding: 65px 8%;
+            border-bottom: 2px solid #d97706;
+        }
+        .banner-inner { max-width: 1140px; margin: 0 auto; border-left: 4px solid #d97706; padding-left: 24px; }
+        .banner-inner h1 { margin: 0 0 10px 0; font-size: 38px; line-height: 1.15; }
+        .banner-inner p { margin: 0; color: #cbd5e1; font-size: 16px; max-width: 620px; }
+
+        /* Сетка тарифов */
+        .section { padding: 65px 8% 80px 8%; max-width: 1280px; margin: 0 auto; width: 100%; flex: 1; }
+        .price-grid { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
+        .p-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 34px 28px; flex: 1 1 calc(33.333% - 20px); min-width: 280px; display: flex; flex-direction: column; position: relative; }
+        .p-card.featured { border: 2px solid #d97706; background-color: #172033; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); }
+        .top-label { position: absolute; top: -13px; right: 24px; background-color: #d97706; color: #ffffff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 4px; }
+        .p-card h3 { margin: 0 0 8px 0; font-size: 22px; }
+        .p-sub { color: #94a3b8; font-size: 14px; margin: 0 0 20px 0; }
+        .p-cost { font-size: 32px; font-weight: 900; color: #ffffff; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid #334155; }
+        .p-cost span { font-size: 15px; font-weight: 500; color: #94a3b8; }
+        .p-list { list-style: none; padding: 0; margin: 0 0 28px 0; flex: 1; font-size: 14px; color: #cbd5e1; }
+        .p-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .p-list li::before { content: "✓"; color: #d97706; font-weight: bold; position: absolute; left: 0; }
+        .btn-gold { background-color: #d97706; color: #ffffff; border: none; padding: 14px 20px; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; width: 100%; transition: 0.2s; }
+        .btn-gold:hover { background-color: #b45309; }
+
+        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+
+        /* Модальное окно заявки */
+        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
+.modal-box { background-color: #1e293b; border: 2px solid #d97706; border-radius: 12px; padding: 35px; max-width: 450px; width: 100%; position: relative; }
+        .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #94a3b8; font-size: 28px; cursor: pointer; }
+        .modal-box h3 { margin: 0 0 8px 0; font-size: 24px; }
+        .modal-box p { margin: 0 0 20px 0; color: #94a3b8; font-size: 14px; }
+        .m-input { width: 100%; padding: 13px 15px; margin-bottom: 14px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
+        .m-input:focus { border-color: #d97706; }
+        .m-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 12px; padding: 15px 5%; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            nav a { margin: 0; font-size: 14px; }
+            .page-banner { padding: 45px 5%; }
+            .banner-inner h1 { font-size: 28px; }
+            .p-card { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">ЧОО <span>«ОБЕРЕГ»</span></a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="prices.html" class="active">Тарифы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <a href="tel:+78005553535" class="header-tel">8 (800) 555-35-35</a>
+    </header>
+
+    <div class="page-banner">
+        <div class="banner-inner">
+            <h1>Прозрачные тарифы на охрану</h1>
+            <p>Фиксированная абонентская плата без скрытых комиссий. Бесплатный выезд инженера для оценки объекта в день обращения.</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="price-grid">
+            <div class="p-card">
+                <h3>Пультовая охрана</h3>
+                <p class="p-sub">Для магазинов, офисов, салонов и квартир</p>
+                <div class="p-cost">от 3 500 ₽ <span>/ мес</span></div>
+                <ul class="p-list">
+                    <li>Подключение к пульту 24/7 за 1 день</li>
+                    <li>Выезд вооружённой ГБР за 5 минут</li>
+                    <li>Тревожная кнопка и датчики движения</li>
+                    <li>SMS-уведомления о постановке/снятии</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Тариф: Пультовая охрана (от 3 500 ₽/мес)')">Подключить тариф</button>
+            </div>
+
+            <div class="p-card featured">
+                <div class="top-label">Популярный выбор</div>
+                <h3>Физический пост</h3>
+                <p class="p-sub">Для бизнес-центров, складов и производств</p>
+                <div class="p-cost">от 160 ₽ <span>/ час</span></div>
+                <ul class="p-list">
+                    <li>Лицензированные охранники 4–6 разряда</li>
+                    <li>Режим работы: 12 часов или круглосуточно</li>
+                    <li>Контрольно-пропускной режим и обходы</li>
+                    <li>Полная материальная ответственность</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Тариф: Физический пост охраны (от 160 ₽/час)')">Заказать пост</button>
+            </div>
+
+            <div class="p-card">
+                <h3>Сопровождение и VIP</h3>
+                <p class="p-sub">Для грузов, инкассации и личной защиты</p>
+                <div class="p-cost">от 1 500 ₽ <span>/ час</span></div>
+                <ul class="p-list">
+                    <li>Вооружённая охрана со спецсредствами</li>
+                    <li>Предварительная проверка маршрута</li>
+                    <li>Сопровождение по городу и межгороду</li>
+                    <li>Строгая конфиденциальность</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Тариф: Сопровождение и VIP (от 1 500 ₽/час)')">Рассчитать маршрут</button>
+            </div>
+        </div>
+    </section>
+<footer>
+        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. Все права защищены.
+    </footer>
+
+    <!-- Модальное окно заявки -->
+    <div class="modal-bg" id="guardModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeGuardModal()">×</button>
+            <h3>Оформление тарифа</h3>
+            <p>Оставьте контакты — начальник охраны подготовит договор и согласует время осмотра объекта.</p>
+            <form onsubmit="submitGuardForm(event)">
+                <input type="text" class="m-input" id="guardSubject" required>
+                <input type="text" class="m-input" placeholder="Ваше имя или организация" required>
+                <input type="tel" class="m-input" placeholder="Телефон (+7 ...)" required>
+                <button type="submit" class="btn-gold" style="width: 100%;">Отправить заявку</button>
+            </form>
+            <div class="m-success" id="guardSuccess">✓ Заявка принята! Дежурный специалист свяжется с вами в течение 10 минут.</div>
+        </div>
+    </div>
+
+    <script>
+        function openGuardModal(text) {
+            document.getElementById('guardModal').style.display = 'flex';
+            if (text) document.getElementById('guardSubject').value = text;
+            document.getElementById('guardSuccess').style.display = 'none';
+        }
+        function closeGuardModal() {
+            document.getElementById('guardModal').style.display = 'none';
+        }
+        function submitGuardForm(e) {
+            e.preventDefault();
+            document.getElementById('guardSuccess').style.display = 'block';
+            setTimeout(() => { closeGuardModal(); }, 2500);
+        }
+    </script>
+
+</body>
+</html>

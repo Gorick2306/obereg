@@ -3,86 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЧОО «ОБЕРЕГ» — Контакты</title>
+    <title>Контакты — ЧОО «ОБЕРЕГ»</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f5f7;
-            color: #1a1a1a;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #ffffff;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; color: #132238; }
-        nav a { text-decoration: none; color: #555; margin-left: 25px; font-size: 15px; }
-        nav a.active { color: #f59e0b; font-weight: bold; }
-        .content { padding: 60px 10%; max-width: 900px; margin: 0 auto; width: 100%; flex: 1; }
-        h1 { color: #132238; font-size: 32px; margin-bottom: 25px; }
-        .contact-card {
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #f59e0b;
-        }
-        .contact-card p { font-size: 16px; margin: 14px 0; color: #334155; }
-        .contact-card strong { color: #132238; }
-        .contact-card a { color: #d97706; text-decoration: none; font-weight: bold; }
-        footer {
-            background-color: #132238;
-            color: #94a3b8;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 13px;
-            margin-top: auto;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0b1120; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; text-decoration: none; }
+        .logo span { color: #d97706; }
+        nav a { text-decoration: none; color: #cbd5e1; margin: 0 15px; font-size: 15px; font-weight: 600; transition: 0.2s; }
+        nav a:hover, nav a.active { color: #d97706; }
+        .header-tel { text-decoration: none; color: #ffffff; background-color: #d97706; padding: 9px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .header-tel:hover { background-color: #b45309; }
 
-        /* Настройки для смартфонов */
+        /* Шапка страницы с фоном бизнес-центра */
+        .page-banner {
+            background: linear-gradient(90deg, #0b1120 0%, rgba(11, 17, 32, 0.9) 55%, rgba(11, 17, 32, 0.45) 100%), url('office-building.jpg') center/cover no-repeat;
+            padding: 65px 8%;
+            border-bottom: 2px solid #d97706;
+        }
+        .banner-inner { max-width: 1140px; margin: 0 auto; border-left: 4px solid #d97706; padding-left: 24px; }
+        .banner-inner h1 { margin: 0 0 10px 0; font-size: 38px; line-height: 1.15; }
+        .banner-inner p { margin: 0; color: #cbd5e1; font-size: 16px; max-width: 620px; }
+
+        /* Блок контактов и формы */
+        .section { padding: 65px 8% 80px 8%; max-width: 1280px; margin: 0 auto; width: 100%; flex: 1; }
+        .contact-wrap { display: flex; flex-wrap: wrap; gap: 35px; }
+        .info-col { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        .info-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 26px; }
+        .info-tag { color: #fbbf24; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .info-card h3 { margin: 0 0 8px 0; font-size: 20px; }
+        .info-card p { margin: 0; color: #cbd5e1; font-size: 15px; }
+        .tel-big { display: inline-block; font-size: 22px; font-weight: 900; color: #d97706; text-decoration: none; margin-top: 6px; }
+
+        .form-col { flex: 1; min-width: 300px; background-color: #1e293b; border: 1px solid #334155; border-top: 3px solid #d97706; border-radius: 10px; padding: 34px; }
+        .form-col h2 { margin: 0 0 10px 0; font-size: 24px; }
+        .form-col p { margin: 0 0 22px 0; color: #94a3b8; font-size: 14px; }
+        .f-input { width: 100%; padding: 14px 16px; margin-bottom: 15px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
+        .f-input:focus { border-color: #d97706; }
+        .btn-gold { background-color: #d97706; color: #ffffff; border: none; padding: 15px 25px; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.2s; }
+        .btn-gold:hover { background-color: #b45309; }
+        .f-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 700; }
+
+        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px 5%; gap: 12px; }
-            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-            nav a { margin-left: 0; font-size: 14px; }
-            .content { padding: 30px 5%; }
-            h1 { font-size: 26px; }
-            .contact-card { padding: 20px; }
-            .contact-card p { font-size: 15px; }
+            header { flex-direction: column; gap: 12px; padding: 15px 5%; }
+nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            nav a { margin: 0; font-size: 14px; }
+            .page-banner { padding: 45px 5%; }
+            .banner-inner h1 { font-size: 28px; }
+            .form-col { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">ЧОО «ОБЕРЕГ»</div>
+        <a href="index.html" class="logo">ЧОО <span>«ОБЕРЕГ»</span></a>
         <nav>
             <a href="index.html">Главная</a>
-            <a href="about.html">О компании</a>
-            <a href="services.html">Услуги охраны</a>
+            <a href="services.html">Услуги</a>
+            <a href="prices.html">Тарифы</a>
             <a href="contacts.html" class="active">Контакты</a>
         </nav>
+        <a href="tel:+78005553535" class="header-tel">8 (800) 555-35-35</a>
     </header>
 
-    <div class="content">
-        <h1>Свяжитесь с нами</h1>
-        <div class="contact-card">
-            <p><strong>Дежурная часть (круглосуточно):</strong> <a href="tel:+78005553535">+7 (800) 555-35-35</a></p>
-            <p><strong>Отдел договорной работы:</strong> <a href="mailto:info@obereg-guard.ru">info@obereg-guard.ru</a></p>
-            <p><strong>Адрес центрального офиса:</strong> г. Прокопьевск, пр. Шахтёров, д. 10, офис 302</p>
-            <p><strong>Режим работы офиса:</strong> Пн–Пт с 09:00 до 18:00</p>
+    <div class="page-banner">
+        <div class="banner-inner">
+            <h1>Контакты и дежурная часть</h1>
+            <p>Оперативный штаб и центр мониторинга работают круглосуточно без выходных.</p>
         </div>
     </div>
 
+    <section class="section">
+        <div class="contact-wrap">
+            <div class="info-col">
+                <div class="info-card">
+                    <div class="info-tag">Горячая линия 24/7</div>
+                    <h3>Дежурная часть и отдел заказов</h3>
+                    <p>Бесплатный звонок по России и экстренный вызов инженера:</p>
+                    <a href="tel:+78005553535" class="tel-big">8 (800) 555-35-35</a>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-tag">Центральный офис</div>
+                    <h3>Адрес штаба ЧОО «ОБЕРЕГ»</h3>
+                    <p>г. Прокопьевск, пр. Шахтёров, д. 33, офис 405.<br>Приём клиентов: Пн–Пт с 09:00 до 19:00.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-tag">Юридическая информация</div>
+                    <h3>Реквизиты организации</h3>
+                    <p>ООО ЧОО «ОБЕРЕГ» • ИНН 4223054120<br>Лицензия Росгвардии № 42-00184 от 14.05.2012 г.</p>
+                </div>
+            </div>
+<div class="form-col">
+                <h2>Заказать бесплатный выезд инженера</h2>
+                <p>Специалист приедет на ваш объект, проведёт аудит уязвимых мест и подготовит коммерческое предложение.</p>
+                <form onsubmit="submitContactForm(event)">
+                    <input type="text" class="f-input" placeholder="Ваше имя или должность" required>
+                    <input type="tel" class="f-input" placeholder="Контактный телефон (+7 ...)" required>
+                    <input type="text" class="f-input" placeholder="Адрес или тип объекта (офис, склад, магазин)">
+                    <textarea class="f-input" rows="4" placeholder="Дополнительные пожелания (необязательно)"></textarea>
+                    <button type="submit" class="btn-gold">Отправить заявку</button>
+                </form>
+                <div class="f-success" id="contactSuccess">✓ Спасибо! Ваша заявка передана начальнику охраны. Мы перезвоним в течение 10 минут.</div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © 2026 ЧОО «ОБЕРЕГ». Лицензия Росгвардии. Все права защищены.
+        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. Все права защищены.
     </footer>
+
+    <script>
+        function submitContactForm(e) {
+            e.preventDefault();
+            document.getElementById('contactSuccess').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>

@@ -3,114 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЧОО «ОБЕРЕГ» — Услуги и тарифы</title>
+    <title>Услуги — ЧОО «ОБЕРЕГ»</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f5f7;
-            color: #1a1a1a;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #ffffff;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .logo { font-size: 20px; font-weight: bold; letter-spacing: 1px; color: #132238; }
-        nav a { text-decoration: none; color: #555; margin-left: 25px; font-size: 15px; }
-        nav a.active { color: #f59e0b; font-weight: bold; }
-        .content { padding: 60px 10%; max-width: 1100px; margin: 0 auto; width: 100%; flex: 1; }
-        h1 { color: #132238; font-size: 32px; margin-bottom: 25px; }
-        .service-item {
-            background: #ffffff;
-            padding: 25px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 5px solid #132238;
-        }
-        .service-info h3 { margin: 0 0 8px 0; color: #132238; }
-        .service-info p { margin: 0; color: #64748b; font-size: 14px; }
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #d97706;
-            white-space: nowrap;
-            margin-left: 20px;
-        }
-        footer {
-            background-color: #132238;
-            color: #94a3b8;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 13px;
-            margin-top: auto;
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0b1120; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #ffffff; text-decoration: none; }
+        .logo span { color: #d97706; }
+        nav a { text-decoration: none; color: #cbd5e1; margin: 0 15px; font-size: 15px; font-weight: 600; transition: 0.2s; }
+        nav a:hover, nav a.active { color: #d97706; }
+        .header-tel { text-decoration: none; color: #ffffff; background-color: #d97706; padding: 9px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .header-tel:hover { background-color: #b45309; }
 
-        /* Настройки для смартфонов */
+        /* Шапка страницы с фоном бизнес-центра */
+        .page-banner {
+            background: linear-gradient(90deg, #0b1120 0%, rgba(11, 17, 32, 0.9) 55%, rgba(11, 17, 32, 0.45) 100%), url('office-building.jpg') center/cover no-repeat;
+            padding: 65px 8%;
+            border-bottom: 2px solid #d97706;
+        }
+        .banner-inner { max-width: 1140px; margin: 0 auto; border-left: 4px solid #d97706; padding-left: 24px; }
+        .banner-inner h1 { margin: 0 0 10px 0; font-size: 38px; line-height: 1.15; }
+        .banner-inner p { margin: 0; color: #cbd5e1; font-size: 16px; max-width: 620px; }
+
+        /* Сетка услуг */
+        .section { padding: 65px 8% 80px 8%; max-width: 1280px; margin: 0 auto; width: 100%; flex: 1; }
+        .services-grid { display: flex; flex-wrap: wrap; gap: 25px; }
+        .srv-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 30px; flex: 1 1 calc(33.333% - 20px); min-width: 290px; display: flex; flex-direction: column; transition: 0.2s; }
+        .srv-card:hover { border-color: #d97706; transform: translateY(-3px); }
+        .srv-tag { color: #fbbf24; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .srv-card h3 { margin: 0 0 12px 0; font-size: 21px; }
+        .srv-card p { color: #94a3b8; font-size: 14px; margin: 0 0 18px 0; flex: 1; }
+        .srv-list { list-style: none; padding: 0; margin: 0 0 22px 0; border-top: 1px solid #334155; padding-top: 14px; font-size: 13px; color: #cbd5e1; }
+        .srv-list li { margin-bottom: 6px; padding-left: 16px; position: relative; }
+        .srv-list li::before { content: "▪"; color: #d97706; position: absolute; left: 0; }
+        .btn-gold { background-color: #d97706; color: #ffffff; border: none; padding: 12px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; width: 100%; transition: 0.2s; }
+        .btn-gold:hover { background-color: #b45309; }
+
+        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+
+        /* Модальное окно заказа услуги */
+        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
+        .modal-box { background-color: #1e293b; border: 2px solid #d97706; border-radius: 12px; padding: 35px; max-width: 450px; width: 100%; position: relative; }
+        .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #94a3b8; font-size: 28px; cursor: pointer; }
+.modal-box h3 { margin: 0 0 8px 0; font-size: 24px; }
+        .modal-box p { margin: 0 0 20px 0; color: #94a3b8; font-size: 14px; }
+        .m-input { width: 100%; padding: 13px 15px; margin-bottom: 14px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
+        .m-input:focus { border-color: #d97706; }
+        .m-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 700; }
+
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px 5%; gap: 12px; }
-            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-            nav a { margin-left: 0; font-size: 14px; }
-            .content { padding: 30px 5%; }
-            h1 { font-size: 26px; }
-            .service-item { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
-            .price { margin-left: 0; font-size: 17px; }
+            header { flex-direction: column; gap: 12px; padding: 15px 5%; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            nav a { margin: 0; font-size: 14px; }
+            .page-banner { padding: 45px 5%; }
+            .banner-inner h1 { font-size: 28px; }
+            .srv-card { flex: 1 1 100%; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo">ЧОО «ОБЕРЕГ»</div>
+        <a href="index.html" class="logo">ЧОО <span>«ОБЕРЕГ»</span></a>
         <nav>
             <a href="index.html">Главная</a>
-            <a href="about.html">О компании</a>
-            <a href="services.html" class="active">Услуги охраны</a>
+            <a href="services.html" class="active">Услуги</a>
+            <a href="prices.html">Тарифы</a>
             <a href="contacts.html">Контакты</a>
         </nav>
+        <a href="tel:+78005553535" class="header-tel">8 (800) 555-35-35</a>
     </header>
 
-    <div class="content">
-        <h1>Услуги и тарифы</h1>
-
-        <div class="service-item">
-            <div class="service-info">
-                <h3>Пост физической охраны (суточный)</h3>
-                <p>Круглосуточное дежурство лицензированного охранника на объекте.</p>
-            </div>
-            <div class="price">от 95 000 ₽ / мес</div>
-        </div>
-
-        <div class="service-item">
-            <div class="service-info">
-                <h3>Пультовая охрана бизнеса</h3>
-                <p>Подключение тревожной кнопки и датчиков с выездом экипажа ГБР.</p>
-            </div>
-            <div class="price">от 4 500 ₽ / мес</div>
-        </div>
-
-        <div class="service-item">
-            <div class="service-info">
-                <h3>Личная охрана (телохранитель)</h3>
-                <p>Вооружённое сопровождение VIP-персон и деловых встреч.</p>
-            </div>
-            <div class="price">от 2 500 ₽ / час</div>
+    <div class="page-banner">
+        <div class="banner-inner">
+            <h1>Виды охранных услуг</h1>
+            <p>Работаем строго по лицензии Росгвардии. Подбираем индивидуальный регламент охраны для каждого объекта.</p>
         </div>
     </div>
 
+    <section class="section">
+        <div class="services-grid">
+            <div class="srv-card">
+                <div class="srv-tag">Посты 12 / 24 часа</div>
+                <h3>Физическая охрана объектов</h3>
+                <p>Организация контрольно-пропускного режима и патрулирование территории подготовленными сотрудниками.</p>
+                <ul class="srv-list">
+                    <li>Бизнес-центры, офисы и банки</li>
+                    <li>Складские и логистические комплексы</li>
+                    <li>Строительные площадки и заводы</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Физическая охрана объектов')">Заказать расчёт</button>
+            </div>
+
+            <div class="srv-card">
+                <div class="srv-tag">Выезд ГБР за 5 минут</div>
+                <h3>Пультовая охрана и КТС</h3>
+                <p>Круглосуточный мониторинг охранной сигнализации и тревожной кнопки с выездом вооружённой группы.</p>
+                <ul class="srv-list">
+                    <li>Магазины, кафе, аптеки и салоны</li>
+                    <li>Офисные помещения и склады</li>
+                    <li>Коттеджи и городские квартиры</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Пультовая охрана и тревожная кнопка')">Заказать расчёт</button>
+            </div>
+
+            <div class="srv-card">
+                <div class="srv-tag">По всей России</div>
+                <h3>Сопровождение ценных грузов</h3>
+                <p>Вооружённое сопровождение автотранспорта и железнодорожных перевозок по согласованному маршруту.</p>
+                <ul class="srv-list">
+                    <li>Предварительный аудит маршрута</li>
+                    <li>Экипированные сотрудники со спецсвязью</li>
+                    <li>Полная материальная ответственность</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Сопровождение ценных грузов')">Заказать расчёт</button>
+            </div>
+<div class="srv-card">
+                <div class="srv-tag">Инженерный отдел</div>
+                <h3>Видеонаблюдение и СКУД</h3>
+                <p>Проектирование, монтаж и обслуживание систем видеонаблюдения с удалённым доступом со смартфона.</p>
+                <ul class="srv-list">
+                    <li>IP-камеры высокого разрешения</li>
+                    <li>Турникеты и электронные пропуска</li>
+                    <li>Охранно-пожарная сигнализация</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Монтаж видеонаблюдения и СКУД')">Вызвать инженера</button>
+            </div>
+
+            <div class="srv-card">
+                <div class="srv-tag">Конфиденциально</div>
+                <h3>Личная охрана (телохранители)</h3>
+                <p>Обеспечение личной безопасности руководителей, бизнесменов и членов их семей в поездках и на встречах.</p>
+                <ul class="srv-list">
+                    <li>Сотрудники с опытом спецподразделений</li>
+                    <li>Проверка мест проведения встреч</li>
+                    <li>Водители-охранники со стажем от 10 лет</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Личная охрана / телохранитель')">Заказать расчёт</button>
+            </div>
+
+            <div class="srv-card">
+                <div class="srv-tag">Безопасность событий</div>
+                <h3>Охрана массовых мероприятий</h3>
+                <p>Поддержание общественного порядка и фейс-контроль на концертах, выставках, форумах и корпоративах.</p>
+                <ul class="srv-list">
+                    <li>Досмотр на входе металлодетекторами</li>
+                    <li>Взаимодействие с полицией и МЧС</li>
+                    <li>Охрана VIP-зоны и артистов</li>
+                </ul>
+                <button class="btn-gold" onclick="openGuardModal('Охрана мероприятий')">Заказать расчёт</button>
+            </div>
+        </div>
+    </section>
+
     <footer>
-© 2026 ЧОО «ОБЕРЕГ». Лицензия Росгвардии. Все права защищены.
+        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. Все права защищены.
     </footer>
+
+    <!-- Модальное окно расчёта -->
+    <div class="modal-bg" id="guardModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeGuardModal()">×</button>
+            <h3>Заявка на услугу</h3>
+            <p>Оставьте контакты — начальник охраны подготовит смету и выедет на бесплатный осмотр объекта.</p>
+            <form onsubmit="submitGuardForm(event)">
+                <input type="text" class="m-input" id="guardSubject" required>
+                <input type="text" class="m-input" placeholder="Ваше имя или организация" required>
+                <input type="tel" class="m-input" placeholder="Телефон (+7 ...)" required>
+                <button type="submit" class="btn-gold" style="width: 100%; padding: 14px;">Отправить заявку</button>
+            </form>
+            <div class="m-success" id="guardSuccess">✓ Заявка принята! Дежурный специалист свяжется с вами в течение 10 минут.</div>
+        </div>
+    </div>
+
+    <script>
+        function openGuardModal(text) {
+            document.getElementById('guardModal').style.display = 'flex';
+            if (text) document.getElementById('guardSubject').value = text;
+            document.getElementById('guardSuccess').style.display = 'none';
+        }
+        function closeGuardModal() {
+            document.getElementById('guardModal').style.display = 'none';
+        }
+        function submitGuardForm(e) {
+            e.preventDefault();
+            document.getElementById('guardSuccess').style.display = 'block';
+            setTimeout(() => { closeGuardModal(); }, 2500);
+        }
+    </script>
+
 </body>
 </html>
