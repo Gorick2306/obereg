@@ -15,7 +15,6 @@
         .header-tel { text-decoration: none; color: #ffffff; background-color: #d97706; padding: 9px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: 0.2s; }
         .header-tel:hover { background-color: #b45309; }
 
-        /* Оригинальный первый экран с фоном бизнес-центра и левым выравниванием */
         .hero-arch {
             background: linear-gradient(90deg, #0b1120 0%, rgba(11, 17, 32, 0.92) 45%, rgba(11, 17, 32, 0.22) 100%), url('office-building.jpg') center/cover no-repeat;
             min-height: 76vh;
@@ -26,11 +25,7 @@
             padding: 80px 8%;
             border-bottom: 2px solid #d97706;
         }
-        .hero-left {
-            max-width: 600px;
-            border-left: 4px solid #d97706;
-            padding-left: 28px;
-        }
+        .hero-left { max-width: 600px; border-left: 4px solid #d97706; padding-left: 28px; }
         .badge { display: inline-block; color: #fbbf24; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
         .hero-left h1 { font-size: 44px; line-height: 1.15; margin: 0 0 20px 0; }
         .hero-left p { color: #cbd5e1; font-size: 17px; margin: 0 0 32px 0; }
@@ -40,17 +35,7 @@
         .btn-dark { background-color: rgba(15, 23, 42, 0.75); color: #ffffff; border: 1px solid #64748b; padding: 14px 26px; border-radius: 6px; font-size: 15px; font-weight: 600; text-decoration: none; transition: 0.2s; }
         .btn-dark:hover { border-color: #d97706; color: #fbbf24; }
 
-        /* Плавающая карточка дежурной части справа поверх здания */
-        .dispatch-card {
-            background-color: rgba(11, 17, 32, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid #334155;
-            border-top: 3px solid #d97706;
-            padding: 26px;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
+        .dispatch-card { background-color: rgba(11, 17, 32, 0.85); backdrop-filter: blur(8px); border: 1px solid #334155; border-top: 3px solid #d97706; padding: 26px; border-radius: 10px; width: 300px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); }
         .live-row { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; color: #4ade80; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
         .live-dot { width: 8px; height: 8px; background-color: #4ade80; border-radius: 50%; }
         .dispatch-item { border-bottom: 1px solid #1e293b; padding: 10px 0; }
@@ -58,8 +43,7 @@
         .dispatch-item span { display: block; font-size: 12px; color: #94a3b8; }
         .dispatch-item strong { font-size: 18px; color: #ffffff; }
 
-        /* Цифры и услуги */
-.stats { background-color: #0b1120; padding: 45px 8%; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; border-bottom: 1px solid #1e293b; }
+        .stats { background-color: #0b1120; padding: 45px 8%; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; border-bottom: 1px solid #1e293b; }
         .stat-box { flex: 1; min-width: 200px; text-align: center; }
         .stat-num { font-size: 36px; font-weight: 900; color: #d97706; line-height: 1.1; margin-bottom: 6px; }
         .stat-desc { color: #94a3b8; font-size: 14px; }
@@ -72,17 +56,45 @@
         .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
         .card-body h3 { margin: 0 0 10px 0; font-size: 20px; }
         .card-body p { color: #94a3b8; font-size: 14px; margin: 0 0 20px 0; flex: 1; }
-        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+        /* Блок пошагового квиз-калькулятора */
+        .quiz-section { padding: 75px 8%; background-color: #0b1120; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+        .quiz-box { max-width: 720px; margin: 0 auto; background-color: #1e293b; border: 2px solid #d97706; border-radius: 14px; padding: 36px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); }
+        .quiz-progress { display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; text-transform: uppercase; color: #fbbf24; letter-spacing: 1px; margin-bottom: 18px; border-bottom: 1px solid #334155; padding-bottom: 12px; }
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; }
+        .quiz-step h3 { margin: 0 0 18px 0; font-size: 22px; }
+        .quiz-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+        .q-opt { flex: 1 1 calc(50% - 10px); min-width: 200px; background-color: #0f172a; border: 1px solid #334155; padding: 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px; transition: 0.2s; }
+        .q-opt.selected, .q-opt:hover { border-color: #d97706; background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; }
+        .area-val { font-size: 28px; font-weight: 900; color: #d97706; margin-bottom: 10px; }
+        .range-slider { width: 100%; accent-color: #d97706; cursor: pointer; margin-bottom: 25px; }
+        .quiz-nav { display: flex; justify-content: space-between; gap: 12px; }
+        .result-price-box { background-color: #0f172a; border: 1px solid #d97706; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
+        .result-price-box span { display: block; color: #94a3b8; font-size: 13px; }
+        .result-price-box strong { font-size: 32px; color: #fbbf24; }
 
-        /* Модальное окно заявки */
-        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
-        .modal-box { background-color: #1e293b; border: 2px solid #d97706; border-radius: 12px; padding: 35px; max-width: 450px; width: 100%; position: relative; }
-        .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #94a3b8; font-size: 28px; cursor: pointer; }
-        .modal-box h3 { margin: 0 0 8px 0; font-size: 24px; }
-        .modal-box p { margin: 0 0 20px 0; color: #94a3b8; font-size: 14px; }
-        .m-input { width: 100%; padding: 13px 15px; margin-bottom: 14px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
+        .m-input { width: 100%; padding: 13px 15px; margin-bottom: 12px; background-color: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; font-size: 15px; outline: none; }
         .m-input:focus { border-color: #d97706; }
-        .m-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 700; }
+        .policy-check { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #94a3b8; margin-bottom: 14px; text-align: left; }
+        .policy-check input { margin-top: 3px; accent-color: #d97706; }
+        .policy-check a { color: #fbbf24; text-decoration: underline; cursor: pointer; }
+        .m-success { display: none; background-color: rgba(217, 119, 6, 0.15); border: 1px solid #d97706; color: #fbbf24; padding: 14px; border-radius: 8px; margin-top: 14px; font-size: 14px; font-weight: 700; }
+
+        footer { background-color: #070b14; border-top: 1px solid #1e293b; text-align: center; padding: 28px 15px; color: #64748b; font-size: 13px; margin-top: auto; }
+        footer a { color: #94a3b8; text-decoration: underline; cursor: pointer; }
+
+        .modal-bg { display: none; position: fixed; inset: 0; background: rgba(7, 11, 20, 0.85); z-index: 300; align-items: center; justify-content: center; padding: 20px; }
+        .modal-box { background-color: #1e293b; border: 2px solid #d97706; border-radius: 12px; padding: 35px; max-width: 460px; width: 100%; position: relative; }
+        .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #94a3b8; font-size: 28px; cursor: pointer; }
+        .modal-box h3 { margin: 0 0 10px 0; font-size: 22px; }
+        .modal-box p { margin: 0; color: #cbd5e1; font-size: 14px; }
+
+        .float-widget { position: fixed; bottom: 22px; right: 22px; z-index: 250; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+        .float-menu { display: none; flex-direction: column; gap: 8px; }
+        .float-menu.open { display: flex; }
+        .float-link { background-color: #1e293b; border: 1px solid #475569; color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+        .float-link:hover { border-color: #d97706; color: #fbbf24; }
+        .float-trigger { background-color: #d97706; color: #fff; border: none; width: 56px; height: 56px; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.45); }
 
         @media (max-width: 900px) {
             header { flex-direction: column; gap: 12px; padding: 15px 5%; }
@@ -91,8 +103,8 @@
             .hero-arch { flex-direction: column; align-items: flex-start; background: linear-gradient(180deg, rgba(11, 17, 32, 0.85) 0%, rgba(11, 17, 32, 0.72) 100%), url('office-building.jpg') center/cover no-repeat; padding: 55px 5%; }
             .hero-left { padding-left: 18px; }
             .hero-left h1 { font-size: 28px; }
-            .dispatch-card { width: 100%; }
-            .card { flex: 1 1 100%; }
+            .dispatch-card, .card { width: 100%; flex: 1 1 100%; }
+            .quiz-box { padding: 24px 18px; }
         }
     </style>
 </head>
@@ -115,50 +127,29 @@
             <h1>Комплексная охрана бизнес-центров, объектов и грузов</h1>
             <p>Физические посты, пультовое реагирование за 5 минут и монтаж систем контроля доступа с полной материальной ответственностью.</p>
             <div class="hero-btns">
-                <button class="btn-gold" onclick="openGuardModal('Расчёт стоимости охраны объекта')">Рассчитать стоимость</button>
+                <a href="#quizCalc" class="btn-gold">Рассчитать в калькуляторе</a>
                 <a href="services.html" class="btn-dark">Каталог услуг</a>
             </div>
         </div>
 
         <div class="dispatch-card">
             <div class="live-row"><span class="live-dot"></span> Мониторинг 24/7 активен</div>
-            <div class="dispatch-item">
-                <span>Время прибытия ГБР</span>
-                <strong>от 4 до 6 минут</strong>
-            </div>
-            <div class="dispatch-item">
-                <span>Экипажей на дежурстве</span>
-                <strong>18 групп в городе</strong>
-            </div>
-            <div class="dispatch-item">
-                <span>Бесплатный выезд инженера</span>
-                <strong>В день обращения</strong>
-            </div>
+            <div class="dispatch-item"><span>Время прибытия ГБР</span><strong>от 4 до 6 минут</strong></div>
+            <div class="dispatch-item"><span>Экипажей на дежурстве</span><strong>18 групп в городе</strong></div>
+            <div class="dispatch-item"><span>Бесплатный выезд инженера</span><strong>В день обращения</strong></div>
         </div>
     </section>
 
     <section class="stats">
-        <div class="stat-box">
-            <div class="stat-num">5 мин</div>
-            <div class="stat-desc">среднее время прибытия группы быстрого реагирования</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num">340+</div>
-            <div class="stat-desc">офисов, складов и магазинов под нашей защитой</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num">14 лет</div>
-            <div class="stat-desc">безупречной работы и лицензированных сотрудников</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num">100%</div>
-            <div class="stat-desc">материальная ответственность по договору</div>
-        </div>
+        <div class="stat-box"><div class="stat-num">5 мин</div><div class="stat-desc">среднее время прибытия группы быстрого реагирования</div></div>
+        <div class="stat-box"><div class="stat-num">340+</div><div class="stat-desc">офисов, складов и магазинов под нашей защитой</div></div>
+        <div class="stat-box"><div class="stat-num">14 лет</div><div class="stat-desc">безупречной работы и лицензированных сотрудников</div></div>
+        <div class="stat-box"><div class="stat-num">100%</div><div class="stat-desc">материальная ответственность по договору</div></div>
     </section>
-<section class="section">
+
+    <section class="section">
         <h2 class="sec-title">Основные направления защиты</h2>
         <p class="sec-sub">Подбираем оптимальный формат безопасности под бюджет и специфику вашего предприятия.</p>
-
         <div class="grid-3">
             <div class="card">
                 <img src="office-guard.jpg" alt="Физическая охрана">
@@ -168,7 +159,6 @@
                     <a href="services.html" class="btn-gold" style="text-align:center; padding:10px;">Подробнее об услуге</a>
                 </div>
             </div>
-
             <div class="card">
                 <img src="alarm.jpg" alt="Пультовая охрана">
                 <div class="card-body">
@@ -177,7 +167,6 @@
                     <a href="services.html" class="btn-gold" style="text-align:center; padding:10px;">Подробнее об услуге</a>
                 </div>
             </div>
-
             <div class="card">
                 <img src="escort.jpg" alt="Сопровождение грузов">
                 <div class="card-body">
@@ -188,51 +177,139 @@
             </div>
         </div>
     </section>
+    <section class="quiz-section" id="quizCalc">
+        <h2 class="sec-title">Калькулятор стоимости охраны</h2>
+        <p class="sec-sub">Ответьте на 3 вопроса за 20 секунд и получите ориентировочную смету в месяц.</p>
+
+        <div class="quiz-box">
+            <div class="quiz-progress">
+                <span id="stepTitle">Шаг 1 из 3 • Тип объекта</span>
+                <span>ЧОО «ОБЕРЕГ»</span>
+            </div>
+
+            <!-- Шаг 1 -->
+            <div class="quiz-step active" id="qStep1">
+                <h3>Какой объект требуется взять под охрану?</h3>
+                <div class="quiz-options">
+                    <div class="q-opt selected" onclick="pickOpt(this, 'type', 'Офис / Бизнес-центр', 4000)">Офис / Бизнес-центр</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'type', 'Магазин / Кафе / Аптека', 3500)">Магазин / Кафе / Аптека</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'type', 'Склад / Производство', 6500)">Склад / Производство</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'type', 'Частный дом / Коттедж', 3000)">Частный дом / Коттедж</div>
+                </div>
+                <div class="quiz-nav" style="justify-content: flex-end;">
+                    <button type="button" class="btn-gold" onclick="goStep(2)">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="quiz-step" id="qStep2">
+                <h3>Укажите примерную площадь помещения:</h3>
+                <div class="area-val"><span id="areaDisplay">150</span> м²</div>
+                <input type="range" class="range-slider" id="areaRange" min="50" max="2000" step="50" value="150" oninput="document.getElementById('areaDisplay').textContent = this.value">
+                <div class="quiz-nav">
+                    <button type="button" class="btn-dark" onclick="goStep(1)">← Назад</button>
+                    <button type="button" class="btn-gold" onclick="goStep(3)">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="quiz-step" id="qStep3">
+                <h3>Какой формат защиты вам подходит?</h3>
+                <div class="quiz-options">
+                    <div class="q-opt selected" onclick="pickOpt(this, 'mode', 'Пультовая охрана + ГБР 24/7', 0)">Пультовая охрана + тревожная кнопка ГБР</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'mode', 'Дневной пост физической охраны', 45000)">Дневной пост физической охраны (12 ч)</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'mode', 'Круглосуточный пост охраны', 85000)">Круглосуточный пост охраны (24/7)</div>
+                    <div class="q-opt" onclick="pickOpt(this, 'mode', 'Комплекс: Пост + Пульт ГБР', 88000)">Комплекс: Физический пост + Пульт ГБР</div>
+                </div>
+                <div class="quiz-nav">
+                    <button type="button" class="btn-dark" onclick="goStep(2)">← Назад</button>
+                    <button type="button" class="btn-gold" onclick="calcFinal()">Рассчитать смету ✓</button>
+                </div>
+            </div>
+
+            <!-- Результат -->
+            <div class="quiz-step" id="qStep4">
+                <div class="result-price-box">
+                    <span>Ориентировочная стоимость охраны по вашим параметрам:</span>
+                    <strong id="finalPrice">5 500 ₽ / мес</strong>
+                </div>
+                <form onsubmit="submitQuizOrder(event)">
+                    <input type="text" class="m-input" id="qName" placeholder="Ваше имя или организация" required>
+                    <input type="tel" class="m-input" id="qPhone" placeholder="Телефон для получения сметы (+7 ...)" required>
+                    <label class="policy-check">
+                        <input type="checkbox" checked required>
+                        <span>Согласен на обработку данных согласно <a onclick="document.getElementById('policyModal').style.display='flex'">Политике конфиденциальности (152-ФЗ)</a></span>
+                    </label>
+                    <div class="quiz-nav">
+                        <button type="button" class="btn-dark" onclick="goStep(1)">Пересчитать</button>
+                        <button type="submit" class="btn-gold" style="flex:1;">Отправить расчёт в Telegram</button>
+                    </div>
+                </form>
+                <div class="m-success" id="quizSuccess">✓ Расчёт сформирован! Открываем Telegram для отправки начальнику охраны...</div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. Все права защищены.
+        © 2026 ЧОО «ОБЕРЕГ» — Частная охранная организация. <a onclick="document.getElementById('policyModal').style.display='flex'">Политика конфиденциальности (152-ФЗ)</a>
     </footer>
 
-    <!-- Модальное окно расчёта -->
-    <div class="modal-bg" id="guardModal">
+    <!-- Плавающий виджет связи -->
+    <div class="float-widget">
+        <div class="float-menu" id="floatMenu">
+            <a href="https://t.me" target="_blank" class="float-link">Написать в Telegram</a>
+            <a href="https://wa.me" target="_blank" class="float-link">Написать в WhatsApp</a>
+            <a href="tel:+78005553535" class="float-link">Позвонить в дежурную часть</a>
+        </div>
+        <button class="float-trigger" onclick="document.getElementById('floatMenu').classList.toggle('open')" title="Связаться с нами">🛡️</button>
+    </div>
+
+    <!-- Политика конфиденциальности -->
+    <div class="modal-bg" id="policyModal">
         <div class="modal-box">
-            <button class="modal-close" onclick="closeGuardModal()">×</button>
-            <h3>Расчёт стоимости охраны</h3>
-            <p>Оставьте контакты — начальник охраны подготовит смету и выедет на бесплатный осмотр объекта.</p>
-            <form onsubmit="submitGuardForm(event)">
-                <input type="text" class="m-input" id="guardSubject" required>
-                <input type="text" class="m-input" placeholder="Ваше имя или организация" required>
-                <input type="tel" class="m-input" placeholder="Телефон (+7 ...)" required>
-                <select class="m-input">
-                    <option value="Офис / Бизнес-центр">Объект: Офис / Бизнес-центр</option>
-                    <option value="Магазин / Кафе">Объект: Магазин / Ресторан</option>
-                    <option value="Склад / Производство">Объект: Склад / Производство</option>
-                    <option value="Коттедж / Квартира">Объект: Частный дом / Квартира</option>
-                </select>
-                <button type="submit" class="btn-gold" style="width: 100%;">Получить расчёт</button>
-            </form>
-            <div class="m-success" id="guardSuccess">✓ Заявка принята! Дежурный специалист свяжется с вами в течение 10 минут.</div>
+            <button class="modal-close" onclick="document.getElementById('policyModal').style.display='none'">×</button>
+            <h3>Политика конфиденциальности</h3>
+            <p>Настоящая Политика составлена в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных». ЧОО «ОБЕРЕГ» использует контактные данные исключительно для подготовки коммерческого предложения по охране объекта.</p>
         </div>
     </div>
 
     <script>
-        function openGuardModal(text) {
-            document.getElementById('guardModal').style.display = 'flex';
-            if (text) document.getElementById('guardSubject').value = text;
-            document.getElementById('guardSuccess').style.display = 'none';
+        let quizData = { type: 'Офис / Бизнес-центр', basePrice: 4000, mode: 'Пультовая охрана + ГБР 24/7', modePrice: 0 };
+
+        function pickOpt(el, group, label, price) {
+            el.parentElement.querySelectorAll('.q-opt').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            if (group === 'type') { quizData.type = label; quizData.basePrice = price; }
+            if (group === 'mode') { quizData.mode = label; quizData.modePrice = price; }
         }
-        function closeGuardModal() {
-            document.getElementById('guardModal').style.display = 'none';
+
+        function goStep(stepNum) {
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('qStep' + stepNum).classList.add('active');
+            const titles = { 1: 'Шаг 1 из 3 • Тип объекта', 2: 'Шаг 2 из 3 • Площадь помещения', 3: 'Шаг 3 из 3 • Формат защиты' };
+            document.getElementById('stepTitle').textContent = titles[stepNum];
         }
-        function submitGuardForm(e) {
+
+        function calcFinal() {
+            const area = parseInt(document.getElementById('areaRange').value);
+            const total = quizData.basePrice + quizData.modePrice + (area * 10);
+            document.getElementById('finalPrice').textContent = total.toLocaleString('ru-RU') + ' ₽ / мес';
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('qStep4').classList.add('active');
+            document.getElementById('stepTitle').textContent = 'Готово • Предварительная смета';
+        }
+
+        function submitQuizOrder(e) {
             e.preventDefault();
-            document.getElementById('guardSuccess').style.display = 'block';
-            setTimeout(() => { closeGuardModal(); }, 2500);
+            const area = document.getElementById('areaRange').value;
+            const total = document.getElementById('finalPrice').textContent;
+            const name = document.getElementById('qName').value;
+            const phone = document.getElementById('qPhone').value;
+            document.getElementById('quizSuccess').style.display = 'block';
+            const msg = encodeURIComponent(`Заявка с калькулятора ЧОО ОБЕРЕГ:\nОбъект: ${quizData.type}\nПлощадь: ${area} м²\nФормат: ${quizData.mode}\nРасчёт: ${total}\nКлиент: ${name} (${phone})`);
+            setTimeout(() => { window.open(`https://t.meshare/url?url=OBEREG&text=${msg}`, '_blank'); }, 1000);
         }
     </script>
-
 </body>
 </html>
-
-
 
